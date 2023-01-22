@@ -13,10 +13,9 @@ Including another URLconf
     1. Import to include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
 from django.urls import path
-from generator import views
+from dj_password_generator.views import main_screen
 
 urlpatterns = [
-    path('', views.main_screen),
+    path('', main_screen),
 ]
