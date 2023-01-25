@@ -17,34 +17,37 @@
             <div class="result__viewbox" id="result">CLICK GENERATE</div>
             <button id="copy-btn" style="--x: 0; --y: 0"><i class="far fa-copy"></i></button>
         </div>
-        <div class="length range__slider" data-min="4" data-max="32">
-            <div class="length__title field-title" data-length='0'>length:</div>
-            <input id="slider" type="range" min="4" max="32" value="16" />
-        </div>
 
         <div class="settings">
+            <form action="{% url 'password'%}">
+                <select  name="lenght" class="range__slider">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
             <span class="settings__title field-title">settings</span>
             <div class="setting">
-                <input type="checkbox" id="uppercase" checked />
+                <input type="checkbox" id="uppercase" name="uppercase" checked />
                 <label for="uppercase">Include Uppercase</label>
             </div>
             <div class="setting">
-                <input type="checkbox" id="lowercase" checked />
+                <input type="checkbox" id="lowercase" name="lowercase" checked />
                 <label for="lowercase">Include Lowercase</label>
             </div>
             <div class="setting">
-                <input type="checkbox" id="number" checked />
+                <input type="checkbox" id="number" name="number" checked />
                 <label for="number">Include Numbers</label>
             </div>
             <div class="setting">
-                <input type="checkbox" id="symbol" />
+                <input type="checkbox" id="symbol" name="symbol" checked />
                 <label for="symbol">Include Symbols</label>
             </div>
         </div>
-
-        <button class="btn generate" id="generate">Generate Password</button>
+                <button input="sumbit" class="btn generate"> Button </button>
+            </form>
+        </div>
     </div>
-
-    <script src="static/js/script.js"></script>
+<script src="static/js/script.js"></script>
 
 </body>

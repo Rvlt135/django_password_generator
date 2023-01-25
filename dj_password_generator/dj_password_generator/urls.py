@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.urls import path
 from generator.views import main_screen
-from generator.views import password
+from generator.views import password_generated
 
 
 urlpatterns = [
     path('', main_screen),
-    path('password', password, name="password"),
+    path('password', password_generated, name='password'),
 ]

@@ -130,6 +130,7 @@ copyBtn.addEventListener("click", () => {
 		return;
 	}
 	textarea.value = password;
+
 	document.body.appendChild(textarea);
 	textarea.select();
 	document.execCommand("copy");
@@ -148,32 +149,16 @@ generateBtn.addEventListener("click", () => {
 	const hasUpper = uppercaseEl.checked;
 	const hasNumber = numberEl.checked;
 	const hasSymbol = symbolEl.checked;
-	generatedPassword = true;
 	resultEl.innerText = generatePassword(length, hasLower, hasUpper, hasNumber, hasSymbol);
 	copyInfo.style.transform = "translateY(0%)";
 	copyInfo.style.opacity = "0.75";
 	copiedInfo.style.transform = "translateY(200%)";
 	copiedInfo.style.opacity = "0";
+	document.location.reload();
 });
 
 // Function responsible to generate password and then returning it.
-function generatePassword(length, lower, upper, number, symbol) {
-	let generatedPassword = "";
-	const typesCount = lower + upper + number + symbol;
-	const typesArr = [{ lower }, { upper }, { number }, { symbol }].filter(item => Object.values(item)[0]);
-	if (typesCount === 0) {
-		return "";
-	}
-	for (let i = 0; i < length; i++) {
-		typesArr.forEach(type => {
-			const funcName = Object.keys(type)[0];
-			generatedPassword += randomFunc[funcName]();
-		});
-	}
-	return generatedPassword.slice(0, length)
-									.split('').sort(() => Math.random() - 0.5)
-									.join('');
-}
+
 
 // function that handles the checkboxes state, so at least one needs to be selected. The last checkbox will be disabled.
 function disableOnlyCheckbox(){
