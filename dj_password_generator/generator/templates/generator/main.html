@@ -19,12 +19,14 @@
         </div>
 
         <div class="settings">
+
             <form action="{% url 'password'%}">
                 <select  name="lenght" class="range__slider">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
                     <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
                 </select>
             <span class="settings__title field-title">settings</span>
             <div class="setting">
@@ -43,7 +45,7 @@
                 <input type="checkbox" id="symbol" name="symbol" checked />
                 <label for="symbol">Include Symbols</label>
             </div>
-        </div>
+            </div>
                 <button input="sumbit" class="btn generate"> Button </button>
             </form>
         </div>
