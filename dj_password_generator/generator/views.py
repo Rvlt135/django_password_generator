@@ -12,22 +12,19 @@ def password_generated(request):
     uppercase = list('ABCDEFGHIGKLMNOPQRSTUVYXWZ')
     lowercase = list('abcdefghigklmnopqrstuvyxwz')
     include_number = list('1234567890')
-    lenght = int(request.GET.get('lenght', 12))
+    lenght = int(request.GET.get('lenght', 4))
     if request.GET.get('uppercase'):
         characters.extend(uppercase)
     if request.GET.get('lowercase'):
         characters.extend(lowercase)
     if request.GET.get('number'):
         characters.extend(include_number)
+    try:
+        thepassword = ''
+        for it in range(lenght):
+            thepassword += random.choice(characters)
+    except:
 
-    thepassword = ''
-    for it in range(lenght):
-        thepassword += random.choice(characters)
+        return render(request, 'generator/password.html')
 
     return render(request, 'generator/password.html', {'password': thepassword})
-
-'''    pas = ''
-    
-    for x in range(16):  # Количество символов (16)
-        pas = pas + random.choice(list('1234567890abcdefghigklmnopqrstuvyxwzABCDEFGHIGKLMNOPQRSTUVYXWZ'))
-    return render(request, 'generator/password.html', {'password': thepassword})'''
