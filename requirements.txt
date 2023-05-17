@@ -1,0 +1,4 @@
+Django
+setuptools==65.5.1
+sqlparse==0.4.3
+wheel==0.38.4
