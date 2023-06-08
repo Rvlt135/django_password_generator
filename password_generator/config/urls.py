@@ -1,4 +1,4 @@
-"""password_generator URL Configuration
+"""config URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -15,11 +15,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from generator import views
+# from rest_framework_swagger.views import get_swagger_view
+
+from generator.views import home, generate_password, ListPasswordViewSet
+
+from rest_framework.routers import SimpleRouter
+
+router = SimpleRouter()
+router.register(r'list_password', ListPasswordViewSet)
+# schema_view = get_swagger_view(title='Pastebin API')
+
 
 urlpatterns = [
+    # path(r'swagger/', schema_view),
     path('admin/', admin.site.urls),
-    path('', views.home),
-    path('password/', views.generate_password, name='password'),
+    path('', home),
+    path('password/', generate_password, name='password'),
 
 ]
+
+urlpatterns += router.urls
