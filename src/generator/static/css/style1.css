@@ -1,0 +1,10 @@
+.dropdown {
+        pointer-events: none;
+        user-select: none;
+        opacity: 0;
+        padding: 8px 36px 8px 12px;
+        visibility: hidden;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 25px;
+    }

@@ -5,7 +5,7 @@ import random
 
 
 def home(request):
-    return render(request, 'generator/index.html')
+    return render(request, 'generator/index_create.html')
 
 
 def generate_password(request):

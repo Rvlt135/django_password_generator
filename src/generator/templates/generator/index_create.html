@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <form action="{% url 'password' %}">
     <div class="container">
         <h2 class="title">Generate Password</h2>
         <div class="result">
@@ -48,9 +49,8 @@
 
         <button class="btn generate" id="generate">Generate Password</button>
     </div>
-
     <script src="/static/js/script.js"></script>
-
+</form>
 </body>
 
 </html>
