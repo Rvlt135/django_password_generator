@@ -2,10 +2,10 @@ from django.db import models
 
 
 class ListPasswords(models.Model):
-    password = models.CharField(max_length=30)
+    password = models.CharField(max_length=50)
     name = models.CharField(max_length=255)
-    nick_name = models.CharField(max_length=255, default='')
-
+    nick_name = models.CharField(max_length=255)
+    old_password = models.CharField(max_length=255)
 
     def __str__(self):
         """For picture in admin panel"""

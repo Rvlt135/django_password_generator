@@ -14,24 +14,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-# from rest_framework_swagger.views import get_swagger_view
+from django.template.defaulttags import url
+from django.urls import path, re_path, include
 
-from generator.views import home, generate_password, ListPasswordViewSet
+
+from generator.views import home, generate_password, ListPasswordViewSet, auth
 
 from rest_framework.routers import SimpleRouter
 
 router = SimpleRouter()
 router.register(r'list_password', ListPasswordViewSet)
-# schema_view = get_swagger_view(title='Pastebin API')
 
 
 urlpatterns = [
-    # path(r'swagger/', schema_view),
     path('admin/', admin.site.urls),
-    path('', home),
-    path('password/', generate_password, name='password'),
-
+    # path('', home),
+    path('password_create/', generate_password, name='password'),
+    path('api/auth/', include('djoser.urls')),
+    re_path(r'^auth/', include('djoser.urls.authtoken')),
 ]
 
-urlpatterns += router.urls
+urlpatterns += router.urls  # Create from routers to urlpatterns
