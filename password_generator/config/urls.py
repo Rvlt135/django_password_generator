@@ -17,12 +17,12 @@ from django.contrib import admin
 from django.urls import path
 # from rest_framework_swagger.views import get_swagger_view
 
-from generator.views import home, generate_password, ListPasswordViewSet
+from generator.views import home, generate_password, ViewPasswordList
 
 from rest_framework.routers import SimpleRouter
 
 router = SimpleRouter()
-router.register(r'list_password', ListPasswordViewSet)
+# router.register(r'list_password', ViewPasswordList)
 # schema_view = get_swagger_view(title='Pastebin API')
 
 
@@ -31,6 +31,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home),
     path('password/', generate_password, name='password'),
+    path('password_list/', ViewPasswordList.as_view()),
+    path('password_list/<int:pk>/', ViewPasswordList.as_view()),
 
 ]
 
